@@ -1,0 +1,53 @@
+
+/* =========================
+   HERO
+========================= */
+.hero{
+  background: #f6efe8;
+}
+
+.hero__image{
+  height: 420px;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.25), rgba(0,0,0,0)),
+    radial-gradient(800px 420px at 20% 20%, rgba(255,255,255,.22), transparent 60%),
+    #bfae9f;
+  position: relative;
+}
+
+.hero__overlay{
+  position: relative;
+  margin-top: -260px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero__badge{
+  font-size: 14px;
+  letter-spacing: .28em;
+  opacity: .85;
+}
+
+.hero__script{
+  margin-top: 18px;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: .5px;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  text-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 640px){
+  .container{ width: min(1180px, calc(100% - 28px)); }
+  .hero__image{ height: 340px; }
+  .hero__script{ font-size: 44px; }
+  }
+

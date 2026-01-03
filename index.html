@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>onetravelstheworld Reiseblog</title>
+  <meta name="author" content="Chiara Trieb by Chiara Trieb Kreativagentur">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout/header.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components/carousel-section.css">
+  <link rel="stylesheet" href="./css/components/split-section.css">
+  <link rel="stylesheet" href="./css/components/stats-bar.css">
+  <link rel="stylesheet" href="./css/components/recommendations.css">
+  <link rel="stylesheet" href="./css/components/newsletter.css">
+  <link rel="stylesheet" href="./css/layout/footer.css">
+  <link rel="stylesheet" href="./css/components/mega-dropdown.css">
+
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="header__row">
+      <!-- Links: Logo -->
+      <a class="brand" href="#">
+        <span class="brand__logo">
+        <img src="./assets/icons/logo onetravelstheworld (1024 x 300 px).svg" alt="onetravelstheworld Logo">
+        </span>
+      </a>
+
+    <!-- Rest im Container -->
+    <div class="container header__inner">
+      <div class="header__right">
+
+        <!-- Mitte: Suche -->
+      <form class="search" action="#">
+        <span class="search__icon" aria-hidden="true">⌕</span>
+        <input class="search__input" type="search" placeholder="Suche ..." />
+      </form>
+
+      <!-- Navigation -->
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#" class="nav__link">About</a>
+
+        <!-- DROPDOWN: Reiseziele (Mega Dropdown) -->
+<div class="nav__item nav__item--dropdown nav__item--mega" data-mega="destinations">
+  <button class="nav__link nav__drop" type="button" aria-haspopup="true" aria-expanded="false">
+    Reiseziele
+  </button>
+
+  <div class="dropdown dropdown--mega" role="menu" aria-label="Reiseziele">
+    <div class="mega">
+      <div class="mega__head">Wohin möchtest du reisen?</div>
+
+      <div class="mega__grid">
+        <!-- LEFT: Continents -->
+        <div class="mega__left" aria-label="Kontinente" data-mega-tabs>
+          <!-- Buttons kommen per JS -->
+        </div>
+
+        <!-- RIGHT: Countries -->
+        <div class="mega__right">
+          <div class="mega__right-head">
+            <a class="mega__right-title" data-mega-title-link href="#"></a>
+            <a class="mega__overview" href="#" data-mega-overview>Übersicht</a>
+          </div>
+
+          <div class="mega__countries" data-mega-countries>
+            <!-- Länder kommen per JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- DROPDOWN: Reisethemen -->
+        <div class="nav__item nav__item--dropdown">
+          <button class="nav__link nav__drop" type="button" aria-haspopup="true" aria-expanded="false">
+            Reisethemen
+          </button>
+
+          <div class="dropdown" role="menu" aria-label="Reisethemen">
+            <a class="dropdown__link" href="#" role="menuitem">Städtetrips</a>
+            <a class="dropdown__link" href="#" role="menuitem">Roadtrips</a>
+            <a class="dropdown__link" href="#" role="menuitem">Wandern</a>
+            <a class="dropdown__link" href="#" role="menuitem">Vanlife</a>
+            <a class="dropdown__link" href="#" role="menuitem">Budget</a>
+          </div>
+        </div>
+        
+        <a href="#" class="nav__link">Reiseplanung</a>
+        <a href="#" class="nav__link">Reisezeit</a>
+      </nav>
+
+      <!-- Rechts: Social -->
+      <div class="social">
+        <a class="social__btn" href="#" aria-label="Instagram">◎</a>
+        <a class="social__btn" href="#" aria-label="Pinterest">⟐</a>
+        <a class="social__btn" href="#" aria-label="Facebook">f</a>
+      </div>
+
+    </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__image" role="img" aria-label="Platzhalter Headerbild"></div>
+
+      <div class="hero__overlay container">
+        <div class="hero__badge">REISEBLOG</div>
+        <div class="hero__script">onetravelstheworld</div>
+        <img src="./assets/icons/logo onetravelstheworld (1024 x 300 px).svg" alt="onetravelstheworld Logo">
+
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="container stats__inner">
+          <div class="stat">
+            <div class="stat__num">34</div>
+            <div class="stat__label">Bereiste Länder</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">880</div>
+            <div class="stat__label">Tipps & Guides</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">230</div>
+            <div class="stat__label">Unterkünfte</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">143</div>
+            <div class="stat__label">Wanderungen</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- CAROUSEL OBEN -->
+<div class="carousel-mount" data-mount="carousel-frontpage-top"></div>
+
+<!-- Split Section 1 (Bild links, Text rechts) -->
+<div class="split-mount"
+  data-component="split"
+  data-template="tpl-split-section-left"
+  data-key="split-winter">
+</div>
+
+<!-- CAROUSEL MITTE 1 -->
+  <div class="carousel-mount" data-mount="carousel-frontpage-middle1"></div>
+
+<!-- Split Section 2 (Text links, Bild rechts, Button im Bild + Script) -->
+<div
+  class="split-mount"
+  data-component="split"
+  data-template="tpl-split-section-right"
+  data-key="split-unique">
+</div>
+
+
+<!-- CAROUSEL ACCOMMODATIONS -->
+  <div class="carousel-mount" data-mount="carousel-frontpage-accommodations"></div>
+
+  <!-- Recommendations Section 1 -->
+<div
+  class="recommendations-mount"
+  data-component="recommendations"
+  data-template="tpl-recommendations"
+  data-key="recs-frontpage1">
+</div>
+
+
+<!-- Split Section 3 (Bild links, Text rechts) -->
+<div
+  class="split-mount"
+  data-component="split"
+  data-template="tpl-split-section-left"
+  data-key="split-about-me">
+</div>
+
+
+<!-- CAROUSEL UNTEN -->
+  <div class="carousel-mount" data-mount="carousel-frontpage-bottom"></div>
+
+  <!-- CAROUSEL UNTEN -->
+  <div class="carousel-mount" data-mount="carousel-frontpage-bottom"></div>
+
+  <!-- CAROUSEL UNTEN -->
+  <div class="carousel-mount" data-mount="carousel-frontpage-bottom"></div>
+
+
+<!-- Recommendations Section 2 -->
+<div
+  class="recommendations-mount"
+  data-component="recommendations"
+  data-template="tpl-recommendations"
+  data-key="recs-frontpage2">
+</div>
+
+<div
+  class="newsletter-mount"
+  data-component="newsletter"
+  data-template="tpl-newsletter"
+  data-key="newsletter-frontpage">
+</div>
+
+
+  </main>
+
+<!-- Template: Carousel Layout -->
+<template id="tpl-carousel-section">
+  <section class="section carousel-section" data-carousel-section>
+    <div class="container">
+      <div class="section__kicker" data-carousel-kicker></div>
+      <h2 class="section__title" data-carousel-title></h2>
+
+      <div class="carousel" data-carousel>
+        <button class="carousel__btn carousel__btn--left" data-carousel-prev aria-label="Zurück">
+          <span class="arrow arrow--left"></span>
+        </button>
+
+        <div class="carousel__viewport">
+          <div class="carousel__track" data-carousel-track></div>
+        </div>
+
+        <button class="carousel__btn carousel__btn--right" data-carousel-next aria-label="Weiter">
+          <span class="arrow arrow--right"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+</template>
+
+
+<!-- TEMPLATE: Split Section (Bild links / Text rechts) -->
+<template id="tpl-split-section-left">
+  <section class="section split-section split-section--left" data-split-section>
+    <div class="container split-section__inner">
+
+      <div class="split-section__media">
+        <div class="split-section__circle">
+          <img data-split-image src="./assets/images/placeholder.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="split-section__content">
+        <div class="split-section__kicker" data-split-kicker></div>
+        <h2 class="split-section__title" data-split-title></h2>
+
+        <!-- WICHTIG: dieses Element braucht data-split-text -->
+        <div data-split-text></div>
+
+        <a class="split-section__btn" data-split-button href="#"></a>
+      </div>
+
+    </div>
+  </section>
+</template>
+
+
+<!-- TEMPLATE: Split Section (Text links / Bild rechts + Button im Bild + Script) -->
+<template id="tpl-split-section-right">
+  <section class="section split-section split-section--right" data-split-section>
+    <div class="container split-section__inner">
+
+      <div class="split-section__content">
+        <div class="split-section__kicker" data-split-kicker></div>
+        <h2 class="split-section__title" data-split-title></h2>
+
+        <!-- WICHTIG -->
+        <div data-split-text></div>
+
+        <!-- optional -->
+        <div class="split-section__script" data-split-script aria-hidden="true"></div>
+      </div>
+
+      <div class="split-section__media">
+        <div class="split-section__circle">
+          <img data-split-image src="./assets/images/placeholder.jpg" alt="">
+          <a class="split-section__btn split-section__btn--overlay" data-split-button href="#"></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</template>
+
+<!-- TEMPLATE: Recommendations (Kacheln mit Text und Icons) -->
+<template id="tpl-recommendations">
+  <section class="section rec-section" data-rec-section>
+    <div class="container">
+      <div class="rec-grid" data-rec-grid></div>
+    </div>
+  </section>
+</template>
+
+
+<!-- TEMPLATE: Newsletter (Formular) -->
+<template id="tpl-newsletter">
+  <section class="newsletter-section" data-nl>
+    <div class="newsletter__card">
+      <div class="newsletter__kicker" data-nl-kicker></div>
+      <h2 class="newsletter__title" data-nl-title></h2>
+      <p class="newsletter__intro" data-nl-intro></p>
+
+      <form class="newsletter__form" data-nl-form action="#" method="post" novalidate>
+        <div class="nl-field">
+          <label class="nl-label" for="nl-name">
+            NAME <span class="req">*</span>
+          </label>
+          <input class="nl-input" id="nl-name" name="name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="nl-field">
+          <label class="nl-label" for="nl-email">
+            E-MAIL <span class="req">*</span>
+          </label>
+          <input class="nl-input" id="nl-email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <label class="nl-consent">
+          <input class="nl-checkbox" type="checkbox" name="consent" required>
+          <span>
+            Ich stimme der Verarbeitung meiner Daten gemäß der
+            <a href="#" data-nl-privacy-link>Datenschutzerklärung</a> zu.
+          </span>
+        </label>
+
+        <div class="newsletter__btn">
+          <button class="nl-submit" type="submit" data-nl-submit></button>
+        </div>
+      </form>
+    </div>
+  </section>
+</template>
+
+
+<!-- JS -->
+<script type="module" src="./js/script.js"></script>
+
+
+<footer class="footer">
+
+  <!-- FOOTER MAIN -->
+  <section class="footer__main">
+    <div class="container footer__grid">
+
+      <!-- Logo -->
+      <div class="footer__brand">
+        <img class="footer__logo"
+             src="./assets/icons/logo onetravelstheworld (1024 x 300 px).svg"
+             alt="globusliebe Reiseblog Logo">
+      </div>
+
+      <!-- Empfehlungen -->
+      <div class="footer__col">
+        <div class="footer__title">EMPFEHLUNGEN</div>
+
+        <ul class="footer__list">
+          <li>
+            <span class="footer__icon" aria-hidden="true">🏨</span>
+            Hotels: <a class="footer__link footer__link--mark" href="#">Booking.com</a>
+          </li>
+          <li>
+            <span class="footer__icon" aria-hidden="true">🎟️</span>
+            Touren: <a class="footer__link footer__link--mark" href="#">Get Your Guide</a>
+          </li>
+          <li>
+            <span class="footer__icon" aria-hidden="true">💳</span>
+            Kreditkarte: <a class="footer__link footer__link--mark" href="#">DKB Visa</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Infos -->
+      <div class="footer__col">
+        <div class="footer__title">INFOS</div>
+
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#">Über onetravelstheworld</a></li>
+          <li><a class="footer__link" href="#">Zusammenarbeit</a></li>
+          <li><a class="footer__link" href="#">Meine Fotoausrüstung</a></li>
+        </ul>
+      </div>
+
+      <!-- Beliebte Reiseziele -->
+      <div class="footer__col">
+        <div class="footer__title">BELIEBTE REISEZIELE</div>
+
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#">Thailand</a></li>
+          <li><a class="footer__link" href="#">Deutschland</a></li>
+          <li><a class="footer__link" href="#">Arabische Emirate</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer__social" aria-label="Social Media">
+        <a class="footer__social-btn" href="#" aria-label="Facebook">f</a>
+        <a class="footer__social-btn" href="#" aria-label="Instagram">⌁</a>
+        <a class="footer__social-btn" href="#" aria-label="Pinterest">p</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="footer__divider"></div>
+
+  <!-- FOOTER BOTTOM -->
+  <section class="footer__bottom">
+    <div class="container footer__bottom-inner">
+
+      <nav class="footer__bottom-links" aria-label="Rechtliches">
+        <a href="#">IMPRESSUM</a>
+        <a href="#">DATENSCHUTZ</a>
+        <a href="#">COOKIES</a>
+        <a href="#">SITEMAP</a>
+      </nav>
+
+      <div class="footer__copy">
+        © 2025 onetravelstheworld Chiara Trieb
+      </div>
+
+    </div>
+  </section>
+
+</footer>
+
+</body>
+</html>

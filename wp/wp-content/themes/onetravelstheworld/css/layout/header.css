@@ -1,0 +1,268 @@
+/* =========================
+   HEADER
+========================= */
+.header{
+  background: #f6efe8;
+  border-bottom: 1px solid rgba(44,42,39,.10);
+}
+
+/* ganze Kopfzeile: Logo links am Viewport, Rest zentriert im Container */
+.header__row{
+  height: 110px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+/* Logo links groß */
+.brand{
+  padding-left: 30px; /* mini Luft wie beim Vorbild */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Logo-Box (fix) */
+.brand__logo{
+  width: 400px;  /* dein großes Logo */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+.brand__logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* Container-Teil im rechten Grid-Feld */
+.header__inner{
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* Rechter Bereich: Suche + Nav + Social in einer Linie */
+.header__right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px; /* kleiner Abstand zwischen den Blöcken */
+  min-width: 0; /* wichtig, damit Nav nicht abgeschnitten wird */
+}
+/* Suche + Nav + Social im selben "Rechtsbereich" */
+.search{
+  width: 100%;
+  max-width: 200px;     /* ← Suchfeld wird nie größer */
+  height: 44px;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 10px;
+  border: 1px solid rgba(44,42,39,.12);
+}
+
+.search__icon{ opacity: .55; font-size: 18px; }
+.search__input{
+  border: 0;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  background: transparent;
+}
+
+/* Navigation */
+.nav{
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 18px;          /* etwas enger, damit alles passt */
+  font-size: 15px;
+  white-space: nowrap;
+  flex: 0 1 auto;     /* darf sich anpassen */
+}
+
+/* Damit Buttons wie Links aussehen */
+.nav__link{
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  opacity: .85;
+}
+
+.nav__item{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+/* Dropdown Link als Flex, damit Chevron perfekt zentriert ist */
+.nav__drop{
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 6px;
+  position: relative;
+}
+
+/* Chevron mit CSS */
+.nav__drop::after{
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-right: 1.5px solid rgba(44,42,39,.65);
+  border-bottom: 1.5px solid rgba(44,42,39,.65);
+  transform: rotate(45deg);
+  margin-top: -1px;  /* optische Zentrierung */
+  opacity: .75;
+  transition: transform .18s ease, opacity .18s ease, border-color .18s ease;
+}
+
+/* Hover: minimal eleganter Effekt */
+.nav__drop{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.nav__drop::after{
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-right: 1.5px solid rgba(44,42,39,.6);
+  border-bottom: 1.5px solid rgba(44,42,39,.6);
+  transform: rotate(45deg);
+  margin-top: -1px;
+  opacity: .7;
+  transition: transform .18s ease, opacity .18s ease, border-color .18s ease;
+}
+
+.nav__item--dropdown:hover .nav__drop::after,
+.nav__item--dropdown.is-open .nav__drop::after{
+  opacity: 1;
+  border-color: rgba(44,42,39,.85);
+  transform: rotate(225deg); /* rotiert nach oben beim Öffnen */
+}
+
+/* Dropdown Panel */
+.dropdown{
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(44,42,39,.10);
+  box-shadow: 0 18px 50px rgba(0,0,0,.10);
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  backdrop-filter: blur(10px);
+  z-index: 50;
+}
+
+/* kleines „Notch“ oben */
+.dropdown::before{
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,.92);
+  border-left: 1px solid rgba(44,42,39,.10);
+  border-top: 1px solid rgba(44,42,39,.10);
+}
+
+/* Öffnen per Hover */
+.nav__item--dropdown:hover .dropdown{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Öffnen per JS-Klasse (für Klick/Touch) */
+.nav__item--dropdown.is-open .dropdown{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Links im Dropdown */
+.dropdown__link{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  opacity: .9;
+}
+
+.dropdown__link:hover{
+  background: rgba(211,140,119,.15);
+  opacity: 1;
+}
+
+/* Social rechts */
+.social{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;      /* verhindert Umbruch */
+}
+
+.social__btn{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #f6efe8;
+  border: 2px dotted rgba(160,118,85,.6);
+  color: rgba(44,42,39,.85);
+  font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px){
+  .header__inner{
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 18px 0 22px;
+    justify-items: center;
+  }
+  .social{ justify-self: center; }
+  .nav{ justify-content: center; }
+  .hero__overlay{ margin-top: -240px; }
+}
+
+@media (max-width: 900px){
+  .nav__item--dropdown:hover .dropdown{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

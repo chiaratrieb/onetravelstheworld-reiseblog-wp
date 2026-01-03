@@ -1,0 +1,166 @@
+/* =========================
+   SECTION (Allgemein)
+========================= */
+.section{
+  background: #fff;
+  padding: 80px 0;
+}
+.section__kicker{
+  text-align: center;
+  color: #d38c77;
+  letter-spacing: .25em;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section__title{
+  text-align: center;
+  font-size: 50px;
+  margin: 0 0 36px;
+  font-weight: 600;
+}
+
+/* =========================
+   CAROUSEL SECTION
+========================= */
+
+.carousel{
+  position: relative;
+  padding-inline: 56px; /* Platz für Pfeile */
+}
+
+/* Track / Cards */
+.carousel__viewport{
+  overflow: hidden;
+}
+
+.carousel__track{
+  display: flex;
+  gap: 26px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  padding: 6px 4px 4px;
+  scrollbar-width: none; /* Firefox */
+}
+.carousel__track::-webkit-scrollbar{ display: none;
+}
+
+.card--carousel{
+  flex: 0 0 calc((100% - (26px * 3)) / 4); /* 4 Cards sichtbar */
+  min-width: calc((100% - (26px * 3)) / 4);
+}
+
+
+/* Card */
+.card{
+  display: grid;
+  gap: 12px;
+}
+/* Wrapper fürs Overlay */
+.card__media{
+  position: relative;
+}
+
+.card__img{
+  width: 100%;
+  aspect-ratio: 3 / 4;   /* Hochformat wie dein Screenshot */
+  overflow: hidden;
+  background: #ddd;      /* fallback, falls Bild lädt */
+  position: relative;
+}
+
+.card__img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card__meta{
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, 90%); /* kontrollierte Verschiebung nach unten */
+  background: #b7845f;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: .22em;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
+
+.card__title{
+  margin-top: 16px;
+  margin-right: 15px;
+  font-size: 15px;          /* kleiner */
+  line-height: 1.35;
+  font-weight: 400;
+  opacity: .85;
+  text-align: left;         /* explizit links */
+  padding-top: 0;
+}
+
+/* Pfeile (ohne Kreis) */
+.carousel__btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+
+/* Pfeile sichtbar, wenn Maus über Slider/Karten ODER Pfeilbereich */
+.carousel:hover .carousel__btn{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel__btn--left{
+  left: 0;
+  transform: translate(-110%, -50%);
+}
+
+.carousel__btn--right{
+  right: 0;
+  transform: translate(110%, -50%);
+}
+
+/* Pfeilform */
+.arrow{
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(44,42,39,.6);
+  border-right: 2px solid rgba(44,42,39,.6);
+}
+.arrow--left{ transform: rotate(-135deg); }
+.arrow--right{ transform: rotate(45deg); }
+
+/* Responsive: weniger sichtbar */
+@media (max-width: 1100px){
+  .carousel__track{
+    grid-auto-columns: calc((100% - 1 * 18px) / 2); /* 2 sichtbar */
+    gap: 18px;
+  }
+  .carousel{ padding-inline: 44px; }
+}
+
+@media (max-width: 640px){
+  .carousel__track{
+    grid-auto-columns: 85%;
+    gap: 16px;
+  }
+  .carousel__btn{ display: none; }
+}

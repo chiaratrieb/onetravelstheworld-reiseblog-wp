@@ -1,0 +1,93 @@
+/* =========================
+   RECOMMENDATIONS / CARDS (3er Grid)
+========================= */
+
+.rec-section{
+  background: #fff;
+  padding: 80px 0;
+}
+
+.rec-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px;
+}
+
+.rec-card{
+  background: #f6efe8;
+  padding: 20px 25px 20px;
+  max-height: 300px;          /* ← NEU */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-shrink: 0;             /* ← wichtig */
+}
+
+.rec-icon{
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.rec-icon::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(182, 146, 116, .18);
+  filter: blur(.2px);
+}
+
+.rec-icon svg,
+.rec-icon img{
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: block;
+}
+
+.rec-text{
+  font-size: 16px;            /* etwas kleiner */
+  line-height: 1.6;
+  color: rgba(44,42,39,.85);
+  margin: 0;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* Highlight style (wie der Marker/Underline im Screenshot) */
+.rec-text a{
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding: 0 .1em;
+  white-space: nowrap;
+}
+
+.rec-text a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .12em;
+  height: .55em;
+  background: rgba(182, 146, 116, .35);
+  z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .rec-grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .rec-card{
+    min-height: auto;
+  }
+}

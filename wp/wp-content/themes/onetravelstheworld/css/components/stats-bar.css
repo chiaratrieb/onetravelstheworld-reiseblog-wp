@@ -1,0 +1,35 @@
+/* Stats-Leiste */
+.stats{
+  background: #ffffff;
+  margin-top: 20px;
+}
+.stats__inner{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 20px 0;
+}
+.stat{
+  text-align: center;
+  padding: 10px 8px;
+}
+
+.stat__num{
+  color: #d38c77;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.stat__label{
+  font-size: 15px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+@media (max-width: 640px){
+  .stats__inner{ grid-template-columns: repeat(2, 1fr); }
+  .stat{ border-left: 0; }
+  .stat:nth-child(odd){ border-right: 1px solid rgba(44,42,39,.10); }
+  .stat:nth-child(-n+2){ border-bottom: 1px solid rgba(44,42,39,.10); }
+}
