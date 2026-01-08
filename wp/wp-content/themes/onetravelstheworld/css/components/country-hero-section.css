@@ -1,0 +1,117 @@
+/* =========================
+   COUNTRY HERO (Split Section)
+   - Text oben links
+========================= */
+
+.country-hero-section{
+  background: #f6eee9;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* GRID */
+.country-hero-section__inner{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: flex-start;          /* ⬅️ NICHT zentrieren */
+  gap: 60px;
+
+  padding-top: 100px;               /* ⬅️ Abstand oben */
+  padding-left: 10px;              /* ⬅️ Abstand links */
+  padding-bottom: 60px;
+}
+
+/* TEXT */
+.country-hero-section__text{
+  max-width: 640px;
+}
+
+.country-hero-section__title{
+  font-size: 54px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: .01em;
+  margin: 0 0 18px;
+  color: #2c2a27;
+}
+
+.country-hero-section__intro{
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(44,42,39,.78);
+}
+
+/* MEDIA */
+.country-hero-section__media{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.country-hero-section__circle{
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.country-hero-section__circle img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px){
+  .country-hero-section__inner{
+    padding-left: 60px;
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 1000px){
+  .country-hero-section__inner{
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .country-hero-section__media{
+    justify-content: center;
+  }
+
+  .country-hero-section__circle{
+    width: 420px;
+    height: 420px;
+  }
+
+  .country-hero-section__title{
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 520px){
+  .country-hero-section__inner{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+  }
+
+  .country-hero-section__circle{
+    width: 300px;
+    height: 300px;
+  }
+
+  .country-hero-section__title{
+    font-size: 34px;
+  }
+}

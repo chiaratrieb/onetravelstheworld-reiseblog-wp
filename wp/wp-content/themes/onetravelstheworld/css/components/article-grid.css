@@ -1,0 +1,173 @@
+/* =========================
+   COUNTRY: Artikel Grid (4×4)
+   Card-Style wie Screenshot (unabhängig vom Carousel)
+========================= */
+
+.country-articles .article-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* --- Grid Card --- */
+
+.grid-card{
+  display: grid;
+  gap: 12px;
+}
+
+.grid-card__link{
+  text-decoration: none;
+  color: inherit;
+  display: grid;
+  gap: 12px;
+}
+
+.grid-card__link:hover .grid-card__title{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Media / Bild */
+.grid-card__media{
+  position: relative;
+}
+
+.grid-card__img{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #ddd;
+  position: relative;
+  border-radius: 0; /* Screenshot: harte Kanten */
+}
+
+/* WP Thumbnail img */
+.grid-card__img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Country Label (Button/Badge wie Screenshot) */
+.grid-card__meta{
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, 90%); /* kontrollierte Verschiebung nach unten */
+  background: #b7845f;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: .22em;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Titel */
+.grid-card__title{
+  margin-top: 16px;
+  margin-right: 15px;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 400;
+  opacity: .85;
+  text-align: left;
+}
+
+/* =====================================================
+   PAGINATION – finaler Look (nur Pfeile + Kreiszahl)
+===================================================== */
+
+/* Deine alte Standard-Pagination (Pill-Style) deaktivieren/neutralisieren,
+   damit sie NICHT reinfunkt, falls irgendwo anders paginate_links gerendert wird */
+.country-articles .pagination:not(.pagination--arrows):not(.pagination--numbers){
+  all: unset;
+}
+
+/* Wrap */
+.country-articles .pagination-wrap{
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Status komplett ausblenden */
+.country-articles .pagination-status{
+  display: none;
+}
+
+/* Pfeil-Navigation */
+.country-articles .pagination.pagination--arrows{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Pfeile ohne Umrandung */
+.country-articles .pagination.pagination--arrows .page-numbers.prev,
+.country-articles .pagination.pagination--arrows .page-numbers.next{
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  font-size: 24px;
+  color: #b08968;
+  text-decoration: none;
+
+  width: auto;
+  height: auto;
+  line-height: 1;
+}
+
+/* Seitenzahl als Kreis mit feiner gestrichelter Linie */
+.country-articles .pagination.pagination--arrows .page-numbers.current{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed #b08968;
+  background: transparent;
+
+  font-size: 17px;
+  font-weight: 500;
+  color: #b08968;
+
+  cursor: default;
+}
+
+/* Optional: Zahlen-Navigation (falls du sie später wieder nutzen willst) */
+.country-articles .pagination.pagination--numbers{
+  display: none; /* aktuell ausblenden, weil du nur Pfeile + aktuelle Seite willst */
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 1100px){
+  .country-articles .article-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px){
+  .country-articles .article-grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}

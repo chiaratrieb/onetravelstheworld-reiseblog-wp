@@ -1,0 +1,70 @@
+/* =========================
+   COUNTRY INFO SECTIONS
+   - Light + Beige Background
+========================= */
+
+.country-info-section{
+  padding: 70px 0;
+}
+
+.country-info-section--light{
+  background: #fff;
+}
+
+.country-info-section--beige{
+  background: #f6eee9;
+}
+
+.country-info-section__title{
+  font-size: 34px;
+  font-weight: 400;
+  margin: 0 0 20px;
+  color: #2c2a27;
+}
+
+/* WYSIWYG defaults */
+.wysiwyg{
+  color: rgba(44,42,39,.8);
+  line-height: 1.9;
+  font-size: 16px;
+  max-width: 980px;
+}
+
+.wysiwyg p{
+  margin: 0 0 18px;
+}
+
+.wysiwyg h2,
+.wysiwyg h3,
+.wysiwyg h4{
+  font-weight: 400;
+  color: #2c2a27;
+  margin: 34px 0 12px;
+}
+
+.wysiwyg h3{
+  font-size: 26px;
+}
+.wysiwyg h4{
+  font-size: 20px;
+}
+
+.wysiwyg ul,
+.wysiwyg ol{
+  margin: 18px 0 26px 22px;
+}
+
+.wysiwyg li{
+  margin: 10px 0;
+}
+
+.wysiwyg a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(183, 132, 95, .55);
+}
+
+.wysiwyg strong{
+  font-weight: 600;
+}

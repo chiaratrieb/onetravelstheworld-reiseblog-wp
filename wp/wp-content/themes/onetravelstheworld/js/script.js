@@ -1,8 +1,10 @@
 import { initNavDropdowns } from "./components/nav-dropdowns.js";
 import { renderSplitSection } from "./components/split-section.js";
 import { renderRecommendations } from "./components/recommendations.js";
-import { STATIC_CONTENT } from "./content/frontpage.static.js";
+import { STATIC_CONTENT } from "./content/content-components.static.js";
 import { renderNewsletter } from "./components/newsletter.js";
+import { initWorldmap } from "./components/worldmap.js";
+
 
 function cloneTemplate(id) {
   const tpl = document.getElementById(id);
@@ -74,6 +76,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 1) Statische Sections mounten (Split/Recommendations/Newsletter)
   mountStaticComponents();
-
-  
+  initWorldmap();
 });

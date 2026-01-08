@@ -3,7 +3,8 @@
 ========================= */
 .header{
   background: #f6efe8;
-  border-bottom: 1px solid rgba(44,42,39,.10);
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 /* ganze Kopfzeile: Logo links am Viewport, Rest zentriert im Container */

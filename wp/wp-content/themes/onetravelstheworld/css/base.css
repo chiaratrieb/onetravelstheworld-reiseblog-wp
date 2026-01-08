@@ -9,6 +9,10 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #2c2a27;
   background: #f6efe8;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: none;
+
 }
 
 img{ max-width: 100%; display: block; }
@@ -18,4 +22,8 @@ input, button{ font: inherit; }
 .container{
   width: min(1180px, calc(100% - 48px));
   margin-inline: auto;
+}
+
+#site-main{
+  border-top: none !important;
 }

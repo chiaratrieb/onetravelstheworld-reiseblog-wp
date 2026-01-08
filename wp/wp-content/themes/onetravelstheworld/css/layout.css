@@ -4,6 +4,9 @@
 ========================= */
 .hero{
   background: #f6efe8;
+  border-bottom: none;
+  box-shadow: none;
+
 }
 
 .hero__image{

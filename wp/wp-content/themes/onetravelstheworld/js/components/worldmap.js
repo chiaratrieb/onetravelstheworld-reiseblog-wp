@@ -1,0 +1,67 @@
+export function initWorldmap() {
+  const map = document.querySelector('[data-worldmap-map]');
+  const nav = document.querySelector('[data-worldmap-nav]');
+  if (!nav) return;
+
+  /* =========================
+     ACCORDION: Kontinente
+  ========================= */
+  nav.querySelectorAll('.worldmap__toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item  = btn.closest('.worldmap__item');
+      const panel = item.querySelector('.worldmap__panel');
+      if (!panel) return;
+
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Alle schließen
+      nav.querySelectorAll('.worldmap__toggle').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+      });
+      nav.querySelectorAll('.worldmap__panel').forEach(p => {
+        p.hidden = true;
+      });
+
+      // Aktuelles öffnen (wenn vorher geschlossen)
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+      }
+    });
+  });
+
+  /* =========================
+     MARKER (optional / später)
+  ========================= */
+  if (!map) return;
+
+  let markers = [];
+  try {
+    markers = JSON.parse(map.getAttribute('data-markers') || '[]');
+  } catch (e) {
+    console.warn('[OTW] worldmap markers JSON invalid', e);
+  }
+
+  if (!markers.length) return;
+
+  map.innerHTML = '';
+
+  markers.forEach(m => {
+    const a = document.createElement('a');
+    a.className = 'worldmap__marker';
+    a.href = m.url || '#';
+    a.style.left = `${m.x}%`;
+    a.style.top  = `${m.y}%`;
+    a.dataset.continent = m.slug || '';
+
+    a.innerHTML = `
+      <span class="worldmap__bubble">${m.n ?? ''}</span>
+      <div class="worldmap__photo">
+        <img src="${m.img || ''}" alt="">
+      </div>
+      <div class="worldmap__label">${m.label || ''}</div>
+    `;
+
+    map.appendChild(a);
+  });
+}

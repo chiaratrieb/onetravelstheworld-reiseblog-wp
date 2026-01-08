@@ -29,17 +29,20 @@ get_header();
   <?php
   set_query_var('kicker', 'REISEPLANUNG LEICHT GEMACHT');
   set_query_var('title',  'Top Reiseziele 2026');
-  set_query_var('query',  ['context' => 'frontpage_top']);
+  set_query_var('query',  [
+  'context' => 'frontpage_carousel',
+  'slot'    => 'top-reiseziele-global', // nur zur Identifikation, optional
+    ]);
   get_template_part('parts/carousel');
   ?>
 
-  <!-- SPLIT 1 (bleibt JS-mount) -->
+  <!-- SPLIT 1 (bleibt JS-mount, Inhalt über content-components.static) -->
   <div class="split-mount"
        data-component="split"
        data-template="tpl-split-section-left"
        data-key="split_winter"></div>
 
-  <!-- RECOMMENDATIONS (bleibt JS-mount) -->
+  <!-- RECOMMENDATIONS (bleibt JS-mount, Inhalt über content-components.static) -->
   <div class="recommendations-mount"
        data-component="recommendations"
        data-template="tpl-recommendations"
@@ -47,40 +50,48 @@ get_header();
 
   <!-- CAROUSEL MIDDLE (serverseitig) -->
   <?php
-  set_query_var('kicker', 'KALTE JAHRESZEIT');
-  set_query_var('title',  'Die besten Winterdestinations in Europa');
-  set_query_var('query',  ['context' => 'frontpage_middle']);
+  set_query_var('kicker', 'REISEPLANUNG LEICHT GEMACHT');
+  set_query_var('title',  'Top Reiseziele 2026');
+  set_query_var('query',  [
+  'context' => 'frontpage_carousel',
+  'slot'    => 'winter-reiseziele', // nur zur Identifikation, optional
+  ]);
   get_template_part('parts/carousel');
   ?>
 
-  <!-- SPLIT 2 -->
+  <!-- SPLIT 2 (bleibt JS-mount, Inhalt über content-components.static) -->
   <div class="split-mount"
        data-component="split"
        data-template="tpl-split-section-right"
        data-key="split_unique"></div>
 
+  <!-- WORLD MAP -->
+  <?php get_template_part('parts/world-map'); ?>
+
   <!-- CAROUSEL BOTTOM (serverseitig) -->
   <?php
   set_query_var('kicker', 'FERNE WELTEN');
   set_query_var('title',  'Best Off Südostasien');
-  set_query_var('query',  ['context' => 'frontpage_bottom']);
+  set_query_var('query',  [
+  'context' => 'frontpage_carousel',
+  'slot'    => 'aussergewoehnliche-reiseziele', // nur zur Identifikation, optional
+  ]);
   get_template_part('parts/carousel');
   ?>
 
-  <!-- RECOMMENDATIONS 2 -->
+  <!-- RECOMMENDATIONS 2 (bleibt JS-mount, Inhalt über content-components.static) -->
   <div class="recommendations-mount"
        data-component="recommendations"
        data-template="tpl-recommendations"
        data-key="recs_frontpage2"></div>
 
-  <!-- NEWSLETTER -->
+  <!-- NEWSLETTER (bleibt JS-mount, Inhalt über content-components.static) -->
   <div class="newsletter-mount"
        data-component="newsletter"
        data-template="tpl-newsletter"
        data-key="newsletter_frontpage"></div>
 
-  <!-- Templates (Split/Recommendations/Newsletter werden weiter per JS geklont) -->
-  <?php get_template_part('templates'); ?>
+
 
 </main>
 

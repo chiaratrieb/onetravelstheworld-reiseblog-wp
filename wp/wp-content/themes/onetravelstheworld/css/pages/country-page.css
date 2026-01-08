@@ -1,0 +1,10 @@
+/* =========================
+   COUNTRY PAGE: Page-level styles
+   (kein Grid hier! Grid liegt in components/article-grid.css)
+========================= */
+
+.country-page-head .country-page-title{
+  text-align: center;
+}
+
+/* Du kannst hier später Intro/Textblöcke etc. ergänzen */
