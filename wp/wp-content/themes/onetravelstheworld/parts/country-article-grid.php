@@ -90,28 +90,34 @@ if ($total_pages > 1) {
         <article class="grid-card">
           <a class="grid-card__link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(get_the_title()); ?>">
 
-            <div class="grid-card__media">
-              <div class="grid-card__img">
-                <?php if (has_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('medium_large', ['loading' => 'lazy', 'decoding' => 'async']); ?>
-                <?php else : ?>
-                  <img
-                    src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/placeholder.jpg"
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  >
-                <?php endif; ?>
-              </div>
+            <div class="grid-card__paper">
+              <div class="grid-card__inner">
 
-              <?php if ($country_label) : ?>
-                <div class="grid-card__meta">
-                  <?php echo esc_html($country_label); ?>
+                <div class="grid-card__img">
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('medium_large', ['loading' => 'lazy', 'decoding' => 'async']); ?>
+                  <?php else : ?>
+                    <img
+                      src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/placeholder.jpg"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    >
+                  <?php endif; ?>
                 </div>
-              <?php endif; ?>
-            </div>
 
-            <h3 class="grid-card__title"><?php the_title(); ?></h3>
+                <h3 class="grid-card__title"><?php the_title(); ?></h3>
+
+                <div class="grid-card__divider" aria-hidden="true"></div>
+
+                <div class="grid-card__cta">LEARN MORE</div>
+
+                <?php if ($country_label) : ?>
+                  <div class="grid-card__meta"><?php echo esc_html($country_label); ?></div>
+                <?php endif; ?>
+
+              </div>
+            </div>
 
           </a>
         </article>

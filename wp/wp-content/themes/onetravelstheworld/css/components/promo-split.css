@@ -1,0 +1,204 @@
+/* =========================================
+   PROMO SPLIT (Packing Guides) – layout fix
+   ========================================= */
+
+.promo-split{
+  padding: 90px 0;
+  background: #fff;
+}
+
+/* Layout: links Luft, rechts große Bühne */
+.promo-split__inner{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 900px; /* rechte Bühne */
+  align-items: center;
+  gap: 0;
+  overflow: visible;
+
+  /* Tuning */
+  --card-left: 40px;      /* Card weiter nach links/rechts */
+  --card-width: 580px;    /* Card schmaler = mehr Bild sichtbar */
+  --stage-shift: 70px;    /* Bühne nach links ziehen */
+}
+
+/* -----------------------------------------
+   RIGHT: Image stage
+----------------------------------------- */
+.promo-split__stage{
+  position: relative;
+  z-index: 1;
+
+  /* Bühne etwas nach links ziehen, damit hinter der Card mehr vom großen Bild sichtbar ist */
+  transform: translateX(calc(var(--stage-shift) * -1));
+}
+
+/* Rahmen wie Screenshot */
+.promo-split__frame{
+  position: relative;
+  width: 900px;
+  height: 520px;
+  margin-left: auto;
+  border: 2px solid rgba(44,42,39,.25);
+  background: #fff;
+  padding: 10px; /* weißer Innenrand */
+  box-sizing: border-box;
+}
+
+/* 2 Bilder: großes Bild + schmaler Strip rechts */
+.promo-split__images{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 210px; /* rechter Strip */
+  gap: 10px; /* dünner Spalt */
+}
+
+.promo-split__img-main,
+.promo-split__img-side{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(44,42,39,.18);
+}
+
+.promo-split__img-main img,
+.promo-split__img-side img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slider-Dots unten rechts */
+.promo-split__dots{
+  position: absolute;
+  right: 44px;
+  bottom: 22px;
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.promo-split__dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(44,42,39,.15);
+}
+.promo-split__dot.is-active{
+  background: rgba(44,42,39,.28);
+}
+
+/* -----------------------------------------
+   LEFT: Card (Overlap)
+----------------------------------------- */
+.promo-split__card{
+  position: absolute;
+  left: var(--card-left);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--card-width);
+  min-height: 520px;
+  z-index: 4;
+}
+
+.promo-split__card-inner{
+  height: 100%;
+  border: 1px solid rgba(44,42,39,.08);
+  background: #fbfbfb;
+  box-shadow: 0 16px 50px rgba(0,0,0,.08);
+  padding: 54px 56px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* optional: Pattern */
+.promo-split__card-inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: var(--promo-card-pattern, none);
+  background-size: cover;
+  background-position: center;
+  opacity: .22;
+  pointer-events:none;
+}
+.promo-split__card-inner > *{
+  position: relative;
+  z-index: 2;
+}
+
+/* Typo */
+.promo-split__kicker{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  opacity: .75;
+  margin-bottom: 14px;
+}
+
+.promo-split__title{
+  font-size: 58px;
+  line-height: 1.02;
+  margin: 0 0 22px;
+  font-weight: 300;
+  color: rgba(44,42,39,.72);
+  letter-spacing: .01em;
+}
+
+.promo-split__title-script{
+  margin-left: 6px;
+  font-weight: 300;
+  opacity: .85;
+}
+
+.promo-split__text{
+  font-size: 20px;
+  line-height: 1.75;
+  max-width: 440px;
+  margin: 0 auto 34px;
+  color: rgba(44,42,39,.62);
+}
+
+.promo-split__btn{
+  display: inline-block;
+  min-width: 210px;
+  padding: 14px 22px;
+  background: rgba(183,132,95,.55);
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 2px;
+}
+
+/* -----------------------------------------
+   Responsive
+----------------------------------------- */
+@media (max-width: 1200px){
+  .promo-split__inner{
+    grid-template-columns: 1fr;
+    --stage-shift: 0px;
+    --card-left: 0px;
+    --card-width: 100%;
+  }
+
+  .promo-split__stage{
+    transform: none;
+  }
+
+  .promo-split__frame{
+    width: 100%;
+    height: 520px;
+  }
+
+  .promo-split__card{
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    min-height: auto;
+    margin: 0 0 22px;
+  }
+}

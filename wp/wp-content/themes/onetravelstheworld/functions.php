@@ -40,6 +40,8 @@ add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('otw-country-hero', $uri . '/css/components/country-hero-section.css', ['otw-layout'], null);
   wp_enqueue_style('otw-country-info-sections', $uri . '/css/components/country-info-sections.css', ['otw-layout'], null);
   wp_enqueue_style('otw-worldmap', $uri . '/css/components/worldmap.css', ['otw-layout'], null);
+  wp_enqueue_style('otw-promo-split', $uri . '/css/components/promo-split.css', ['otw-layout'], null);
+
 
 
   // pages

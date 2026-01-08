@@ -1,117 +1,356 @@
+/* =========================================
+   COUNTRY HERO (Layout wie Screenshot)
+========================================= */
+
+.country-hero{
+  padding: 70px 0;
+  background: #fff;
+}
+
+.country-hero__inner{
+  display: grid;
+  grid-template-columns: 1fr 420px; /* rechts Sidebar */
+  gap: 60px;
+  align-items: start;
+}
+
 /* =========================
-   COUNTRY HERO (Split Section)
-   - Text oben links
+   LEFT
 ========================= */
 
-.country-hero-section{
-  background: #f6eee9;
+.country-hero__left{
   position: relative;
-  overflow: hidden;
-  padding: 0;
+  min-height: 740px;
 }
 
-/* GRID */
-.country-hero-section__inner{
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  align-items: flex-start;          /* ⬅️ NICHT zentrieren */
-  gap: 60px;
-
-  padding-top: 100px;               /* ⬅️ Abstand oben */
-  padding-left: 10px;              /* ⬅️ Abstand links */
-  padding-bottom: 60px;
+.country-hero__collage{
+  position: relative;
+  height: 420px;
+  margin-bottom: 40px;
 }
 
-/* TEXT */
-.country-hero-section__text{
-  max-width: 640px;
+/* Tag links */
+.country-hero__tag{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 280px;
+  opacity: .95;
+}
+.country-hero__tag img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+.country-hero__tag-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color: rgba(44,42,39,.65);
+}
+.country-hero__tag-kicker{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+.country-hero__tag-code{
+  font-size: 58px;
+  line-height: 1;
+  letter-spacing: .06em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: rgba(183,132,95,.55);
+}
+.country-hero__tag-country{
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.country-hero-section__title{
-  font-size: 54px;
-  line-height: 1.05;
-  font-weight: 400;
-  letter-spacing: .01em;
-  margin: 0 0 18px;
-  color: #2c2a27;
+/* Photos (Polaroid-Style) */
+.country-hero__photo{
+  position: absolute;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid rgba(44,42,39,.10);
+  box-shadow: 0 18px 40px rgba(0,0,0,.06);
 }
-
-.country-hero-section__intro{
-  font-size: 16px;
-  line-height: 1.9;
-  color: rgba(44,42,39,.78);
-}
-
-/* MEDIA */
-.country-hero-section__media{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.country-hero-section__circle{
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #ddd;
-}
-
-.country-hero-section__circle img{
+.country-hero__photo img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display:block;
 }
 
+/* Photo A (links-mitte) */
+.country-hero__photo--a{
+  left: 220px;
+  top: 120px;
+  width: 330px;
+  height: 210px;
+  transform: rotate(-1.2deg);
+}
 
+/* Photo B (oben-mitte) */
+.country-hero__photo--b{
+  left: 520px;
+  top: 0;
+  width: 360px;
+  height: 230px;
+  transform: rotate(0.8deg);
+}
+
+/* Stamp */
+.country-hero__stamp{
+  position: absolute;
+  left: 560px;
+  top: 210px;
+  width: 180px;
+  height: 120px;
+  opacity: .6;
+}
+.country-hero__stamp img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  border-radius: 999px;
+}
+
+/* Polaroid unten rechts */
+.country-hero__polaroid{
+  position: absolute;
+  right: 10px;
+  top: 250px;
+  width: 230px;
+  background: #fff;
+  padding: 10px 10px 42px;
+  border: 1px solid rgba(44,42,39,.10);
+  box-shadow: 0 18px 40px rgba(0,0,0,.06);
+  transform: rotate(0.6deg);
+}
+.country-hero__polaroid img{
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display:block;
+}
+.country-hero__polaroid-cap{
+  position:absolute;
+  left: 16px;
+  bottom: 14px;
+  right: 16px;
+  text-align:center;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 10px;
+  opacity: .65;
+}
+
+/* Copy */
+.country-hero__copy{
+  max-width: 640px;
+}
+.country-hero__copy-inner{
+  color: rgba(44,42,39,.70);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.country-hero__copy-inner p{
+  margin: 0 0 18px;
+}
+
+/* =========================
+   RIGHT SIDEBAR
+========================= */
+
+.country-hero__right{
+  display: grid;
+  gap: 38px;
+}
+
+.country-hero__side-title{
+  margin: 0 0 14px;
+  font-size: 26px;
+  letter-spacing: .10em;
+  font-weight: 500;
+  color: rgba(44,42,39,.60);
+  text-transform: uppercase;
+}
+
+.country-hero__side-block{
+  background: transparent;
+}
+
+/* Destinations list */
+.country-hero__destinations{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.country-hero__destinations-link{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: rgba(44,42,39,.65);
+  background: rgba(183,132,95,.12);
+  padding: 14px 16px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.country-hero__destinations-link:hover{
+  background: rgba(183,132,95,.18);
+}
+
+/* tiny pin icon (CSS) */
+.country-hero__pin{
+  width: 14px;
+  height: 14px;
+  position: relative;
+  opacity: .75;
+}
+.country-hero__pin::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 2px solid rgba(44,42,39,.55);
+  transform: translateX(-50%);
+}
+.country-hero__pin::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:10px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 7px solid rgba(44,42,39,.55);
+  transform: translateX(-50%);
+}
+
+.country-hero__viewall{
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 18px;
+  background: rgba(183,132,95,.22);
+  color: rgba(44,42,39,.65);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.country-hero__viewall:hover{
+  background: rgba(183,132,95,.28);
+}
+
+/* Highlight */
+.country-hero__highlight{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.country-hero__highlight-img{
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #eee;
+}
+.country-hero__highlight-img img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.country-hero__highlight-overlay{
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(44,42,39,.12);
+  padding: 12px 14px;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.country-hero__highlight-title{
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(44,42,39,.70);
+  line-height: 1.35;
+}
 
 /* =========================
    RESPONSIVE
 ========================= */
 
 @media (max-width: 1200px){
-  .country-hero-section__inner{
-    padding-left: 60px;
-    padding-top: 80px;
-  }
-}
-
-@media (max-width: 1000px){
-  .country-hero-section__inner{
+  .country-hero__inner{
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
+    gap: 34px;
   }
-
-  .country-hero-section__media{
-    justify-content: center;
+  .country-hero__left{
+    min-height: auto;
   }
-
-  .country-hero-section__circle{
-    width: 420px;
-    height: 420px;
+  .country-hero__collage{
+    height: 520px;
   }
-
-  .country-hero-section__title{
-    font-size: 42px;
-  }
+  .country-hero__photo--a{ left: 240px; }
+  .country-hero__photo--b{ left: 520px; }
 }
 
-@media (max-width: 520px){
-  .country-hero-section__inner{
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 40px;
+@media (max-width: 760px){
+  .country-hero{
+    padding: 46px 0;
   }
-
-  .country-hero-section__circle{
+  .country-hero__collage{
+    height: 560px;
+  }
+  .country-hero__tag{
+    width: 180px;
+    height: 240px;
+  }
+  .country-hero__photo--a{
+    left: 190px;
+    width: 280px;
+    height: 190px;
+  }
+  .country-hero__photo--b{
+    left: 220px;
+    top: 220px;
     width: 300px;
-    height: 300px;
+    height: 200px;
   }
-
-  .country-hero-section__title{
-    font-size: 34px;
+  .country-hero__stamp{
+    left: 210px;
+    top: 430px;
+  }
+  .country-hero__polaroid{
+    right: 0;
+    top: 380px;
+    width: 210px;
   }
 }

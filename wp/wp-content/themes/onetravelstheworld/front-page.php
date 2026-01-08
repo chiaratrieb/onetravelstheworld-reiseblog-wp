@@ -79,6 +79,9 @@ get_header();
   get_template_part('parts/carousel');
   ?>
 
+  <!-- PACKING GUIDES -->
+  <?php get_template_part('parts/packing-guides'); ?>
+
   <!-- RECOMMENDATIONS 2 (bleibt JS-mount, Inhalt über content-components.static) -->
   <div class="recommendations-mount"
        data-component="recommendations"

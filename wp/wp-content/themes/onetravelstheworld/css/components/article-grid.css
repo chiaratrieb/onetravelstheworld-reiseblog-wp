@@ -1,51 +1,70 @@
 /* =========================
-   COUNTRY: Artikel Grid (4×4)
-   Card-Style wie Screenshot (unabhängig vom Carousel)
+   COUNTRY: Artikel Grid (Paper Cards)
+   Look wie Carousel Screenshot
 ========================= */
 
 .country-articles .article-grid{
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 26px;
+  gap: 34px;
   margin-top: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
+
+  /* statt margin-left/right: schöner “zentriert” */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* --- Grid Card --- */
-
 .grid-card{
-  display: grid;
-  gap: 12px;
+  height: 100%;
 }
 
 .grid-card__link{
   text-decoration: none;
   color: inherit;
-  display: grid;
-  gap: 12px;
+  display: block;
+  height: 100%;
 }
 
-.grid-card__link:hover .grid-card__title{
-  text-decoration: underline;
-  text-underline-offset: 4px;
+/* Außen: beige Paper-Fläche */
+.grid-card__paper{
+  padding: 10px;
+  border: 1px solid rgba(44,42,39,.10);
+  height: 100%;
 }
 
-/* Media / Bild */
-.grid-card__media{
+/* Innen: weißes Blatt */
+.grid-card__inner{
+  background: #f6f0ea;
+  padding: 18px 18px 18px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  /* sorgt für gleiche Kartenhöhe */
+  min-height: 350px;
+
   position: relative;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
+.grid-card__paper:hover .grid-card__inner{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.06);
+}
+
+/* Bild */
 .grid-card__img{
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #ddd;
-  position: relative;
-  border-radius: 0; /* Screenshot: harte Kanten */
+  border: none;
 }
 
-/* WP Thumbnail img */
 .grid-card__img img{
   width: 100%;
   height: 100%;
@@ -53,44 +72,54 @@
   display: block;
 }
 
-/* Country Label (Button/Badge wie Screenshot) */
-.grid-card__meta{
-  position: absolute;
-  left: 50%;
-  top: 80%;
-  transform: translate(-50%, 90%); /* kontrollierte Verschiebung nach unten */
-  background: #b7845f;
-  color: #fff;
-  font-size: 12px;
-  letter-spacing: .22em;
-  padding: 12px 20px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  pointer-events: none;
+/* Titel wie im Screenshot (groß, elegant, mehrzeilig) */
+.grid-card__title{
+  margin: 22px 0 0;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 300;
+  color: rgba(44,42,39,.72);
+  max-width: 92%;
 }
 
-/* Titel */
-.grid-card__title{
-  margin-top: 16px;
-  margin-right: 15px;
-  font-size: 15px;
-  line-height: 1.35;
-  font-weight: 400;
-  opacity: .85;
-  text-align: left;
+/* Divider */
+.grid-card__divider{
+  margin: 18px auto 0;
+  width: 72%;
+  height: 1px;
+  background: rgba(44,42,39,.16);
+}
+
+/* CTA unten */
+.grid-card__cta{
+  margin-top: auto;
+  padding-top: 18px;
+  letter-spacing: .22em;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(44,42,39,.45);
+}
+
+/* Country Label (optional)
+   -> Bei deinem Screenshot ist es nicht zwingend sichtbar.
+   -> Wir setzen es dezent unter CTA (oder du blendest es aus).
+*/
+.grid-card__meta{
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(44,42,39,.35);
 }
 
 /* =====================================================
-   PAGINATION – finaler Look (nur Pfeile + Kreiszahl)
+   PAGINATION – bleibt wie bei dir (Pfeile + Kreiszahl)
 ===================================================== */
 
-/* Deine alte Standard-Pagination (Pill-Style) deaktivieren/neutralisieren,
-   damit sie NICHT reinfunkt, falls irgendwo anders paginate_links gerendert wird */
 .country-articles .pagination:not(.pagination--arrows):not(.pagination--numbers){
   all: unset;
 }
 
-/* Wrap */
 .country-articles .pagination-wrap{
   margin-top: 36px;
   display: flex;
@@ -99,19 +128,16 @@
   align-items: center;
 }
 
-/* Status komplett ausblenden */
 .country-articles .pagination-status{
   display: none;
 }
 
-/* Pfeil-Navigation */
 .country-articles .pagination.pagination--arrows{
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-/* Pfeile ohne Umrandung */
 .country-articles .pagination.pagination--arrows .page-numbers.prev,
 .country-articles .pagination.pagination--arrows .page-numbers.next{
   padding: 0 !important;
@@ -129,7 +155,6 @@
   line-height: 1;
 }
 
-/* Seitenzahl als Kreis mit feiner gestrichelter Linie */
 .country-articles .pagination.pagination--arrows .page-numbers.current{
   width: 44px;
   height: 44px;
@@ -149,17 +174,18 @@
   cursor: default;
 }
 
-/* Optional: Zahlen-Navigation (falls du sie später wieder nutzen willst) */
 .country-articles .pagination.pagination--numbers{
-  display: none; /* aktuell ausblenden, weil du nur Pfeile + aktuelle Seite willst */
+  display: none;
 }
 
 /* --- Responsive --- */
-
 @media (max-width: 1100px){
   .country-articles .article-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
+  }
+  .grid-card__inner{
+    min-height: 500px;
   }
 }
 
@@ -167,7 +193,9 @@
   .country-articles .article-grid{
     grid-template-columns: 1fr;
     gap: 16px;
-    margin-left: 18px;
-    margin-right: 18px;
+    padding-inline: 18px;
+  }
+  .grid-card__inner{
+    min-height: auto;
   }
 }

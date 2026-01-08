@@ -152,30 +152,36 @@ if (
         <div class="carousel__track" data-carousel-track>
           <?php if ($q->have_posts()): ?>
             <?php while ($q->have_posts()): $q->the_post(); ?>
-              <article class="card card--carousel">
-                <a class="card__link" href="<?php the_permalink(); ?>" aria-label="<?php the_title_attribute(); ?>">
-                  <div class="card__media">
-                    <div class="card__img">
-                      <?php if (has_post_thumbnail()): ?>
-                        <?php the_post_thumbnail('medium_large', ['loading'=>'lazy', 'decoding'=>'async']); ?>
-                      <?php else: ?>
-                        <img
-                          src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/placeholder.jpg"
-                          alt=""
-                          loading="lazy"
-                          decoding="async"
-                        >
-                      <?php endif; ?>
-                    </div>
+            <article class="card card--carousel">
+  <a class="card__link" href="<?php the_permalink(); ?>" aria-label="<?php the_title_attribute(); ?>">
 
-                    <div class="card__meta">
-                      <?php echo esc_html(get_the_date('M Y')); ?>
-                    </div>
-                  </div>
+    <div class="card__paper">
+      <div class="card__inner">
 
-                  <h3 class="card__title"><?php the_title(); ?></h3>
-                </a>
-              </article>
+        <div class="card__img">
+          <?php if (has_post_thumbnail()): ?>
+            <?php the_post_thumbnail('medium_large', ['loading'=>'lazy', 'decoding'=>'async']); ?>
+          <?php else: ?>
+            <img
+              src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/placeholder.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            >
+          <?php endif; ?>
+        </div>
+
+        <h3 class="card__title"><?php the_title(); ?></h3>
+
+        <div class="card__divider" aria-hidden="true"></div>
+
+        <div class="card__cta">LEARN MORE</div>
+
+      </div>
+    </div>
+
+  </a>
+</article>
             <?php endwhile; wp_reset_postdata(); ?>
           <?php else: ?>
             <p style="opacity:.7">Noch keine Beiträge vorhanden.</p>

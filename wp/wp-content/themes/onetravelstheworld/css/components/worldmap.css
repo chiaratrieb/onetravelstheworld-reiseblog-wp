@@ -50,7 +50,28 @@
   background: transparent;
   cursor: pointer;
   text-align: left;
+  position: relative;
 }
+
+/* Active continent button */
+.worldmap__toggle[aria-expanded="true"] .worldmap__name{
+  color: rgba(183,132,95,1);
+}
+
+.worldmap__toggle[aria-expanded="true"]{
+  background: rgba(183,132,95,.06);
+}
+
+.worldmap__toggle[aria-expanded="true"]::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:10px;
+  bottom:10px;
+  width:2px;
+  background: rgba(183,132,95,.9);
+}
+
 
   /* 👉 EINRÜCKUNGSVARIABLE für Panel (Num + Gap + Diamond) */
   .worldmap__item{
@@ -116,11 +137,14 @@
   letter-spacing: .12em;
   text-transform: uppercase;
   font-size: 12px;
+  transition: opacity .15s ease, transform .15s ease;
 }
 
 .worldmap__countries a:hover{
   text-decoration: underline;
   text-underline-offset: 4px;
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 .worldmap__empty{
@@ -153,17 +177,31 @@
 .worldmap__marker{
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 150px;
+  width: 70px;
   text-decoration: none;
   color: inherit;
+}
+
+/* Active Marker Highlight */
+.worldmap__marker.is-active .worldmap__photo{
+  border-color: rgba(183,132,95,1);
+  box-shadow: 0 10px 24px rgba(183,132,95,.22);
+}
+
+.worldmap__marker.is-active .worldmap__bubble{
+  border-color: rgba(183,132,95,1);
+  box-shadow: 0 10px 24px rgba(183,132,95,.18);
+}
+
+.worldmap__marker.is-active{
+  z-index: 5;
 }
 
 .worldmap__photo{
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #eee;
-  border: 2px solid rgba(183,132,95,.55);
-  padding: 6px;
+  border: 1.5px solid rgba(183,132,95,.55);
+  padding: 5px;
 }
 
 .worldmap__photo img{
